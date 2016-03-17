@@ -30,10 +30,19 @@ class ansible::params {
       'python-httplib2']
     }
     'RedHat': {
-      $pip_dep_package = ['PyYAML','libyaml','python-babel','python-crypto',
-      'python-ecdsa','python-httplib2','python-jinja2','python-keyczar',
-      'python-markupsafe','python-paramiko','python-pyasn1','python-six',
-      'python-pip']
+      case $::operatingsystemmajrelease {
+        6: {
+          $pip_dep_package = ['epel-release','PyYAML','libyaml','python-babel','python-crypto',
+            'python-httplib2','python-jinja2','python-keyczar','python-markupsafe',
+            'python-paramiko','python-pyasn1','python-six',
+            'python-pip']
+        }
+        default : {
+          $pip_dep_package = ['PyYAML','libyaml','python-babel','python-crypto',
+            'python-ecdsa','python-httplib2','python-jinja2','python-keyczar',
+            'python-markupsafe','python-paramiko','python-pyasn1','python-six',
+            'python-pip']
+        }
     }
     default : {
       $pip_dep_package = []
