@@ -32,9 +32,9 @@ class ansible::params {
     'RedHat': {
       case $::operatingsystemmajrelease {
         '6': {
-          $pip_dep_package = ['epel-release','PyYAML','libyaml','python-babel','python-crypto',
-            'python-httplib2','python-jinja2','python-keyczar','python-markupsafe',
-            'python-paramiko','python-pyasn1','python-six', 'python-pip']
+          $pip_dep_package = ['epel-release','centos-release-scl','python27','PyYAML','libyaml',
+            'python-babel','python-crypto','python-httplib2','python-jinja2','python-keyczar',
+            'python-markupsafe','python-paramiko','python-pyasn1','python-six', 'python-pip']
         }
         default : {
           $pip_dep_package = ['PyYAML','libyaml','python-babel','python-crypto',
