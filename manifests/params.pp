@@ -43,6 +43,7 @@ class ansible::params {
             'python-markupsafe','python-paramiko','python-pyasn1','python-six',
             'python-pip']
         }
+      }
     }
     default : {
       $pip_dep_package = []
